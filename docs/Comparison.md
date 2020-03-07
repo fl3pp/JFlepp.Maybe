@@ -1,32 +1,33 @@
-# Maybe and FSharp Option comparison table
+# Maybe and FSharp Option comparison
 
 The type `JFlepp.Functional.Maybe` type is intended to be used as a direct substition for the FSharp option type.
 
-## Function Comparison
+## Function comparison table
 
 These are the functions implemented as similar as they are in FSharp.   
 
 FSharp | Maybe | Description
 ------ | ----- | -----------
 `Option.bind: ('T -> 'U option) -> 'T option -> 'U option` | `Maybe<T>: TOut Bind<TOut>(Func<T, TOut> functor)` | Invokes a function on an optional value that itself yields an option.
+`Option.count: 'T option -> int` | `Maybe<T>: int Count()` | Returns zero if the option is None, a one otherwise.
 `Option.exists: ('T -> bool) -> 'T option -> bool` | `Maybe<T>: bool Any(Predicate<T> predicate)` | Evaluates the equivalent of `List.exists` (`IEnumerable.Any`) for an option.
 `Option.filter: ('T -> bool) -> option:'T option -> 'T option` | `Maybe<T>: Maybe<T> Filter(Predicate<T> predicate)` | Invokes a function on a maybe that itself yields an option.
 `Option.fold: ('State -> 'T -> 'State) -> 'State -> 'T option -> 'State` | `Maybe<T>: Maybe<TState> Fold<TState>(TState initial, Func<TState, T, TState> folder)` | Applies the supplied function with the supplied initial state and the value of the maybe if is Some.
+`Option.foldBack:  ('T -> 'State -> 'State) -> 'T option -> 'State -> 'State` | `Maybe<T>: TState FoldBack<TState>(Func<T, TState, TState> folder, TState state)` | If the option is None, it returns the initial value of state. Otherwise, it returns the updated state, the result of applying the folder function with the option value and the initial state.
 `Option.forall: ('T -> bool) -> 'T option -> bool` | `Maybe<T>: bool All(Predicate<T> predicate)` | Evaluates the equivalent of `List.forall` (`IEnumerable.All`) for an option.
 `Option.iter: ('T -> unit) -> 'T option -> unit` | `Maybe<T>: Iterate(Action<T> action)` | Executes a function for an option value.
 `Option.map: ('T -> 'U) -> 'T option -> 'U option` | `Maybe<T>: Maybe<TOut> Select<TOut>(Func<T, TOut> mapping)` | Transforms an option value by using a specified mapping function.
 `Option.toArray: 'T option -> 'T []` | `Maybe<T>: T[] ToArray()` | Convert the option to an array of length 0 or 1.
 `Option.toList: 'T option -> 'T list` | `Maybe<T>: List<T> ToList()` | Convert the option to a list of length 0 or 1.
 
-_Note: While the `Option` functions are provided in a module, the maybe methods are provided as extension methods on the `Maybe<T>` type. Out of reasons for easier presentation, the definition are shown as they were provided on the `Maybe<T>` type itself._
+_Note: While the `Option` functions are provided in a module, the maybe methods are provided as extension methods on the `Maybe<T>` type. Out of reasons for easier presentation, the definitions are shown as they were provided on the `Maybe<T>` type itself._
 
-FSharp functions not ported:
+Functions from the Option module not ported as they were are implemented in the `Maybe<T>` type itself:
 
-FSharp | Reason
------- | -----------
-`Option.foldBack:  ('T -> 'State -> 'State) -> 'T option -> 'State -> 'State` | If the option is None, it returns the initial value of state. Otherwise, it returns the updated state, the result of applying the folder function with the option value and the initial state.
+- `Option.get: 'T option -> 'T`, _Gets the value associated with the option._ 
+- `Option.isNone: 'T option -> bool`, _Returns true if the option is None._
+- `Option.isSome: 'T option -> bool`, _Returns true if the option is Some._
 
-_Please open an issue if you wish to have these functions included._
 
 _Look up the MSDN documentation (link at the bottom) for more informations about the functions in F#._
 
@@ -46,7 +47,7 @@ namespace JFlepp.Functional.Unsafe
 }
 ~~~
 
-While it does behave the same way the option type does (returns value or throws `NullReferenceException`), the method is being hidden in order to prevent misuse, respectively instead of an appropriate function likely not known by an OO-only programmer.
+While it does behave the same way the option type does (returns value or throws `NullReferenceException`), the method is being hidden in order to prevent misuse, respectively to enforce usage of the appropriate functions likely not known by an classic OO programmer.
 
 #### ToNullable
 
@@ -80,7 +81,7 @@ None creation | `None` | `None<T>()` | Add `using static JFlepp.Functional.Maybe
 _Note: All maybe examples include the `using static JFlepp.Functional.Maybe` using declaration._
 
 
-_Example of the same functionality with F# language features:_
+Example of the functionality with F# language features:
 
 ~~~ fs
 let getIntIf3 str =
@@ -88,7 +89,7 @@ let getIntIf3 str =
   else None
 ~~~
 
-_and the maybe library in C#:_
+with the maybe library in C#:
 
 ~~~ cs
 using static JFlepp.Functional.Maybe;
@@ -117,7 +118,7 @@ struct Maybe<T>
 }
 ~~~
 
-_Example of the same functionality with F# language features:_
+Example of the functionality with F# language features:
 
 ~~~ fs
 let stopIfNeeded sign =
@@ -129,7 +130,7 @@ let stopIfNeeded sign =
 None |> stopIfNeeded                     // Driving
 ~~~
 
-_and the maybe library in C#:_
+with the maybe library in C#:
 
 ~~~ cs
 void StopIfNeeded(Maybe<StopSign> sign) => sign.Match(
