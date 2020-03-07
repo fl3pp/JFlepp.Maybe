@@ -4,12 +4,6 @@ The type `JFlepp.Functional.Maybe` type is intended to be used as a direct subst
 
 ## Primitive comparison table
 
-  <tr>
-	<td><code>orElse: ifNone:'T option -> option:'T option -> 'T option</code></td>
-	<td><code></code></td>
-	<td>Returns true if the option is None.</td>
-  </tr>
-
 <table>
 
 	<tr>
