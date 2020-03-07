@@ -14,8 +14,6 @@ namespace JFlepp.Functional
         /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
         /// <returns>A zero if the <see cref="Maybe{T}" /> is None, a one otherwise.</returns>
         public static int Count<T>(this Maybe<T> input)
-        {
-            throw new NotImplementedException();
-        }
+            => input.Match(v => 1, () => 0);
     }
 }

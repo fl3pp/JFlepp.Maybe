@@ -15,8 +15,6 @@ namespace JFlepp.Functional
         /// <param name="predicate">A function that evaluates whether the value contained in the <see cref="Maybe{T}" /> should remain, or be filtered out.</param>
         /// <returns></returns>
         public static Maybe<T> Filter<T>(this Maybe<T> input, Predicate<T> predicate)
-        {
-            throw new NotImplementedException();
-        }
+            => input.Match(v => predicate(v) ? input : Maybe.None<T>(), () => Maybe.None<T>());
     }
 }

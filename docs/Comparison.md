@@ -8,7 +8,7 @@ These are the functions implemented as similar as they are in FSharp.
 
 FSharp | Maybe | Description
 ------ | ----- | -----------
-`Option.bind: ('T -> 'U option) -> 'T option -> 'U option` | `Maybe<T>: TOut Bind<TOut>(Func<T, TOut> functor)` | Invokes a function on an optional value that itself yields an option.
+`Option.bind: ('T -> 'U option) -> 'T option -> 'U option` | `Maybe<T>: Maybe<TOut> Bind<TOut>(Func<T, Maybe<TOut>> functor)` | Invokes a function on an optional value that itself yields an option.
 `Option.count: 'T option -> int` | `Maybe<T>: int Count()` | Returns zero if the option is None, a one otherwise.
 `Option.exists: ('T -> bool) -> 'T option -> bool` | `Maybe<T>: bool Any(Predicate<T> predicate)` | Evaluates the equivalent of `List.exists` (`IEnumerable.Any`) for an option.
 `Option.filter: ('T -> bool) -> option:'T option -> 'T option` | `Maybe<T>: Maybe<T> Filter(Predicate<T> predicate)` | Invokes a function on a maybe that itself yields an option.

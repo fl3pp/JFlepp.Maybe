@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JFlepp.Maybe.Tests", "src\J
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{906ABF7F-8F03-48B6-B175-78B7D2A38C4D}"
 	ProjectSection(SolutionItems) = preProject
-		docs\Examples.md = docs\Examples.md
+		docs\Comparison.md = docs\Comparison.md
 	EndProjectSection
 EndProject
 Global
