@@ -19,4 +19,8 @@
     <ProjectReference Include="..\JFlepp.Maybe\JFlepp.Maybe.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Functions\" />
+  </ItemGroup>
+
 </Project>

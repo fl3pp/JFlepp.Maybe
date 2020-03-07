@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace JFlepp.Functional
 {
-    public partial struct Maybe<T>
+    public static partial class MaybeExtensions
     {
         /// <summary>
-        /// Transforms a maybe value by using a specified mapping function.
+        /// Transforms a <see cref="Maybe{T}" /> value by using a specified mapping function.
         /// </summary>
-        /// <typeparam name="TOut">The output type of the mapping.</typeparam>
-        /// <param name="mapping">A function to apply to the option value.</param>
-        /// <returns>An option of the result of applying the mapping function, or None if the maybe is None.</returns>
-        public Maybe<TOut> Select<TOut>(Func<T, TOut> mapping)
+        /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
+        /// <param name="mapping">A function to apply to the <see cref="Maybe{T}" /> value.</param>
+        /// <returns>A <see cref="Maybe{T}" /> of the result of applying the mapping function, or None if the <see cref="Maybe{T}" /> is None.</returns>
+        public static Maybe<TOut> Select<T, TOut>(this Maybe<T> input, Func<T, TOut> mapping)
         {
             throw new NotImplementedException();
         }

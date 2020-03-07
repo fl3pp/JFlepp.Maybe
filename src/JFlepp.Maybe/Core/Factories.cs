@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace JFlepp.Functional
 {
     /// <summary>
-    /// Provides functions for operations with <see cref="Maybe{T}" />s.
+    /// Provides functions for creating <see cref="Maybe{T}" />s.
     /// </summary>
     public static partial class Maybe
     {

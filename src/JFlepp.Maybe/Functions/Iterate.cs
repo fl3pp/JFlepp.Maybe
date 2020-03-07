@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace JFlepp.Functional
 {
-    public partial struct Maybe<T>
+    public static partial class MaybeExtensions
     {
         /// <summary>
-        /// Executes a function for an option value if is Some.
+        /// Executes a function for a <see cref="Maybe{T}" /> value if is Some.
         /// </summary>
-        /// <param name="action">A function to apply to the maybe value.</param>
-        public void Iterate(Action<T> action)
+        /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
+        /// <param name="action">A function to apply to the <see cref="Maybe{T}" /> value.</param>
+        public static void Iterate<T>(this Maybe<T> input, Action<T> action)
         {
             throw new NotImplementedException();
         }

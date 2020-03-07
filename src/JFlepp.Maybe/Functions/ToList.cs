@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace JFlepp.Functional
 {
-    public partial struct Maybe<T>
+    public static partial class MaybeExtensions
     {
         /// <summary>
-        /// Convert the maybe to a list of length 0 or 1.
+        /// Convert the <see cref="Maybe{T}" /> to a list of length 0 or 1.
         /// </summary>
+        /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
         /// <returns>The result list.</returns>
-        public List<T> ToList()
+        public static List<T> ToList<T>(this Maybe<T> input)
         {
             throw new NotImplementedException();
         }

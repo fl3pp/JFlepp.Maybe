@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace JFlepp.Functional
 {
-    public partial struct Maybe<T>
+    public static partial class MaybeExtensions
     {
         /// <summary>
-        /// Evaluates the equivalent of <see cref="Enumerable.Count{TSource}(IEnumerable{TSource})" /> for a maybe.
+        /// Evaluates the equivalent of <see cref="Enumerable.Count{TSource}(IEnumerable{TSource})" /> for a <see cref="Maybe{T}" />.
         /// </summary>
-        /// <returns>A zero if the option is None, a one otherwise.</returns>
-        public int Count()
+        /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
+        /// <returns>A zero if the <see cref="Maybe{T}" /> is None, a one otherwise.</returns>
+        public static int Count<T>(this Maybe<T> input)
         {
             throw new NotImplementedException();
         }

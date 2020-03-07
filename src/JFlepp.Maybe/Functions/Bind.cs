@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace JFlepp.Functional
 {
-    public partial struct Maybe<T>
+    public static partial class MaybeExtensions
     {
         /// <summary>
-        /// Invokes a function on an optional value that itself yields an option.
+        /// Invokes a function on a <see cref="Maybe{T}"/> value that itself yields an option.
         /// </summary>
-        /// <typeparam name="TOut">The return type of the binder.</typeparam>
-        /// <param name="binder">A function that takes the value of type T from a maybe and transforms it into a maybe containing a value of type 'TOut'.</param>
+        /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
+        /// <param name="binder">A function that takes the value of type T from a <see cref="Maybe{T}"/> and transforms it into a <see cref="Maybe{T}"/> containing a value of type 'TOut'.</param>
         /// <returns>A maybe of the output type of the binder.</returns>
-        public TOut Bind<TOut>(Func<T, TOut> binder)
+        public static TOut Bind<T, TOut>(this Maybe<T> input, Func<T, TOut> binder)
         {
             throw new NotImplementedException();
         } 

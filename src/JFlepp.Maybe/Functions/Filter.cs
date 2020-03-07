@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace JFlepp.Functional
 {
-    public partial struct Maybe<T>
+    public static partial class MaybeExtensions
     {
         /// <summary>
-        /// Invokes a function on a maybe that itself yields an option.
+        /// Invokes a function on a <see cref="Maybe{T}" /> that itself yields an option.
         /// </summary>
-        /// <param name="predicate">A function that evaluates whether the value contained in the maybe should remain, or be filtered out.</param>
+        /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
+        /// <param name="predicate">A function that evaluates whether the value contained in the <see cref="Maybe{T}" /> should remain, or be filtered out.</param>
         /// <returns></returns>
-        public Maybe<T> Filter(Predicate<T> predicate)
+        public static Maybe<T> Filter<T>(this Maybe<T> input, Predicate<T> predicate)
         {
             throw new NotImplementedException();
         }
