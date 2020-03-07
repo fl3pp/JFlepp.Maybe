@@ -1,0 +1,24 @@
+<Project>
+	<PropertyGroup Label="General">
+		<ProjectNamespaceRoot>JFlepp.Functional</ProjectNamespaceRoot>
+		<ProjectAssemblyNameRoot>JFlepp.Maybe</ProjectAssemblyNameRoot>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Directories">
+		<RootDirectory>$(MSBuildThisFileDirectory)</RootDirectory>
+		<BuildExtensionsDirectory>$(RootDirectory)build\Extensions\</BuildExtensionsDirectory>
+		<EditorConfigDirectory>$(RootDirectory)build\EditorConfig\</EditorConfigDirectory>
+		<OutDirectory>$(RootDirectory)out\</OutDirectory>
+	</PropertyGroup>
+	
+	<PropertyGroup Label="Conventions">
+		<IsTest>False</IsTest>
+		<IsTest Condition="$(MSBuildProjectName.Contains('.Tests'))">True</IsTest>
+	</PropertyGroup>
+
+	<Import Project="$(BuildExtensionsDirectory)Compilation.props" />
+	<Import Project="$(BuildExtensionsDirectory)Analyzers.props" />
+	<Import Project="$(BuildExtensionsDirectory)Out.props" />
+
+
+</Project>

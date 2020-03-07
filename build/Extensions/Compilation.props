@@ -1,0 +1,7 @@
+<Project>
+	
+	<PropertyGroup>
+		<CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+	</PropertyGroup>
+	
+</Project>
