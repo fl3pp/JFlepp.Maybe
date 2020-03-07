@@ -54,99 +54,99 @@ The type `JFlepp.Functional.Maybe` type is intended to be used as a direct subst
   </tr>
 
   <tr>
-    <td><code>fold f s inp</code> evaluates to <code>match inp with None -> s | Some x -> f s x</code>.</td>
-    <td></td>
     <td><code>val fold<'T,'State> : folder:('State -> 'T -> 'State) -> state:'State -> option:'T option -> 'State</code></td>
+    <td></td>
+    <td><code>fold f s inp</code> evaluates to <code>match inp with None -> s | Some x -> f s x</code>.</td>
   </tr>
 
   <tr>
-    <td><code>fold f inp s</code> evaluates to <code>match inp with None -> s | Some x -> f x s</code>.</td>
-    <td></td>
     <td><code>val foldBack<'T,'State> : folder:('T -> 'State -> 'State) -> option:'T option -> state:'State -> 'State</code></td>
+    <td></td>
+    <td><code>fold f inp s</code> evaluates to <code>match inp with None -> s | Some x -> f x s</code>.</td>
   </tr>
 
   <tr>
-    <td><code>exists p inp</code> evaluates to <code>match inp with None -> false | Some x -> p x</code>.</td>
-    <td></td>
     <td><code>val exists: predicate:('T -> bool) -> option:'T option -> bool</code></td>
+    <td></td>
+    <td><code>exists p inp</code> evaluates to <code>match inp with None -> false | Some x -> p x</code>.</td>
   </tr>
 
   <tr>
-    <td><code>forall p inp</code> evaluates to <code>match inp with None -> true | Some x -> p x</code>.</td>
-    <td></td>
    <td><code>val forall: predicate:('T -> bool) -> option:'T option -> bool</code></td>
+    <td></td>
+    <td><code>forall p inp</code> evaluates to <code>match inp with None -> true | Some x -> p x</code>.</td>
   </tr>
 
   <tr>
-    <td>Evaluates to true if <code>option</code> is <code>Some</code> and its value is equal to <code>value</code>.</td>
-    <td></td>
     <td><code>val inline contains: value:'T -> option:'T option -> bool when 'T : equality</code></td>
+    <td></td>
+    <td>Evaluates to true if <code>option</code> is <code>Some</code> and its value is equal to <code>value</code>.</td>
   </tr>
 
   <tr>
-    <td><code>iter f inp</code> executes <code>match inp with None -> () | Some x -> f x</code>.</td>
-    <td></td>
     <td><code>val iter: action:('T -> unit) -> option:'T option -> unit</code></td>
+    <td></td>
+    <td><code>iter f inp</code> executes <code>match inp with None -> () | Some x -> f x</code>.</td>
   </tr>
 
   <tr>
-    <td><code>map f inp</code> evaluates to <code>match inp with None -> None | Some x -> Some (f x)</code>.</td>
-    <td></td>
     <td><code>val map: mapping:('T -> 'U) -> option:'T option -> 'U option</code></td>
+    <td></td>
+    <td><code>map f inp</code> evaluates to <code>match inp with None -> None | Some x -> Some (f x)</code>.</td>
   </tr>
 
   <tr>
-    <td><code>bind f inp</code> evaluates to <code>match inp with None -> None | Some x -> f x</code></td>
-    <td></td>
     <td><code>val bind: binder:('T -> 'U option) -> option:'T option -> 'U option</code></td>
+    <td></td>
+    <td><code>bind f inp</code> evaluates to <code>match inp with None -> None | Some x -> f x</code></td>
   </tr>
 
   <tr>
-    <td><code>flatten inp</code> evaluates to <code>match inp with None -> None | Some x -> x</code></td>
-    <td></td>
     <td><code>val flatten: option:'T option option -> 'T option</code></td>
+    <td></td>
+    <td><code>flatten inp</code> evaluates to <code>match inp with None -> None | Some x -> x</code></td>
   </tr>
 
   <tr>
-    <td><code>filter f inp</code> evaluates to <code>match inp with None -> None | Some x -> if f x then Some x else None</code>.</td>
-    <td></td>
     <td><code>val filter: predicate:('T -> bool) -> option:'T option -> 'T option</code></td>
+    <td></td>
+    <td><code>filter f inp</code> evaluates to <code>match inp with None -> None | Some x -> if f x then Some x else None</code>.</td>
   </tr>
 
   <tr>
-    <td>Convert the option to an array of length 0 or 1.</td>
-    <td></td>
     <td><code>val toArray: option:'T option -> 'T[]</code></td>
+    <td></td>
+    <td>Convert the option to an array of length 0 or 1.</td>
   </tr>
 
   <tr>
-    <td>Convert the option to a list of length 0 or 1.</td>
-    <td></td>
     <td><code>val toList: option:'T option -> 'T list</code></td>
+    <td></td>
+    <td>Convert the option to a list of length 0 or 1.</td>
   </tr>
 
   <tr>
-    <td>Convert the option to a Nullable value.</td>
-    <td></td>
     <td><code>val toNullable: option:'T option -> Nullable<'T></code></td>
+    <td></td>
+    <td>Convert the option to a Nullable value.</td>
   </tr>
 
   <tr>
-    <td>Convert a Nullable value to an option.</td>
-    <td></td>
     <td><code>val ofNullable: value:Nullable<'T> -> 'T option </code></td>
+    <td></td>
+    <td>Convert a Nullable value to an option.</td>
   </tr>
 
   <tr>
-    <td>Convert a potentially null value to an option.</td>
-    <td></td>
     <td><code>val ofObj: value: 'T -> 'T option  when 'T : null</code></td>
+    <td></td>
+    <td>Convert a potentially null value to an option.</td>
   </tr>
 
   <tr>
-    <td>Convert an option to a potentially null value.</td>
-    <td></td>
     <td><code>val toObj: value: 'T option -> 'T when 'T : null</code></td>
+    <td></td>
+    <td>Convert an option to a potentially null value.</td>
   </tr>
 
 </table>
