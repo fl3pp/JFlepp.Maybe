@@ -13,9 +13,21 @@ namespace JFlepp.Functional
         /// </summary>
         /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
         /// <returns>The result array.</returns>
-        public static T[] ToArray<T>(this Maybe<T> input)
+        /// <FSharp>
+        /// let toArray option = match option with  None -> [| |] | Some x -> [| x |]
+        /// // val toArray : option:'a option -> 'a []
+        /// </FSharp>
+        /// <Implementation>
+        /// T[] ToArray{T}(Maybe{T} input) => input.IsSome switch
+        /// {
+        ///     true => new[] { input.Value },
+        ///     _ => Array.Empty{T}(),
+        /// };
+        /// </Implementation>
+        public static T[] ToArray<T>(this Maybe<T> input) => input.IsSome switch
         {
-            throw new NotImplementedException();
-        }
+            true => new[] { input.Value },
+            _ => Array.Empty<T>(),
+        };
     }
 }

@@ -9,7 +9,7 @@ namespace JFlepp.Functional
     /// <typeparam name="T">The value type.</typeparam>
     public partial struct Maybe<T>
     {
-        internal T Value { get; set; }
+        internal T Value { get; }
 
         /// <summary>
         /// Constructs a some value using the given value.

@@ -22,14 +22,14 @@ namespace JFlepp.Functional.Tests
         }
 
         [TestMethod]
-        public void ForEach_WithNone_ExecutesAction()
+        public void ForEach_WithNone_NotExecutesAction()
         {
             var input = Maybe.None<int>();
 
             var hasBeenExecuted = false;
             input.ForEach(v => hasBeenExecuted = true);
 
-            Assert.IsTrue(hasBeenExecuted);
+            Assert.IsFalse(hasBeenExecuted);
         }
     }
 }

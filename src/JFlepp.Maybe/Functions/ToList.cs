@@ -13,9 +13,21 @@ namespace JFlepp.Functional
         /// </summary>
         /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
         /// <returns>The result list.</returns>
-        public static List<T> ToList<T>(this Maybe<T> input)
+        /// <FSharp>
+        /// let toList option = match option with  None -> [ ] | Some x -> [ x ]
+        /// // let toList option = match option with  None -> [ ] | Some x -> [ x ]
+        /// </FSharp>
+        /// <Implementation>
+        /// List{T} ToList{T}(Maybe{T} input) => input.IsSome switch
+        /// {
+        ///     true => new List{T} { input.Value },
+        ///     _ => new List{T}(),
+        /// };
+        /// </Implementation>
+        public static List<T> ToList<T>(this Maybe<T> input) => input.IsSome switch
         {
-            throw new NotImplementedException();
-        }
+            true => new List<T> { input.Value },
+            _ => new List<T>(),
+        };
     }
 }

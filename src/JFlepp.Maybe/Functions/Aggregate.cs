@@ -28,7 +28,7 @@ namespace JFlepp.Functional
         ///     _ => state,
         /// };
         /// </Implementation>
-        public static TResult Aggregate<T, TResult>(this Maybe<T> input, TResult seed, Func<TResult, T, TResult> func) => input.IsNone switch
+        public static TResult Aggregate<T, TResult>(this Maybe<T> input, TResult seed, Func<TResult, T, TResult> func) => input.IsSome switch
         {
             true => func.ThrowIfNull(nameof(func))(seed, input.Value),
             _ => seed,

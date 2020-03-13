@@ -22,5 +22,25 @@ namespace JFlepp.Functional.Tests
 
             Assert.IsTrue(result.IsSome);
         }
+
+        [TestMethod]
+        public void FromObject_WithValue_ReturnsSome()
+        {
+            var input = 1;
+
+            var result = FromObject(input);
+
+            Assert.IsTrue(result.IsSome);
+        }
+
+        [TestMethod]
+        public void FromObject_WithNullReference_ReturnsNone()
+        {
+            var input = (string)null;
+
+            var result = FromObject(input);
+
+            Assert.IsFalse(result.IsSome);
+        }
     }
 }

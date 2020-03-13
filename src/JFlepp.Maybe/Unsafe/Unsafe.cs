@@ -18,6 +18,10 @@ namespace JFlepp.Functional.Unsafe
         /// <param name="maybe">The <see cref="Maybe{T}" /> to get the value from.</param>
         /// <returns>The value of the <see cref="Maybe{T}" /> if is some.</returns>
         /// <exception cref="NullReferenceException">If the maybe is none.</exception>
-        public static T GetValue<T>(this Maybe<T> maybe) => maybe.Match(s => s, () => throw new NullReferenceException());
+        public static T GetValue<T>(this Maybe<T> maybe) => maybe.IsSome switch
+        {
+            true => maybe.Value,
+            _ => throw new NullReferenceException(),
+        };
     }
 }

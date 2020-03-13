@@ -23,7 +23,7 @@ namespace JFlepp.Functional
         ///     _ => true,
         /// };
         /// </Implementation>
-        public static bool All<T>(this Maybe<T> input, Predicate<T> predicate) => input.IsNone switch
+        public static bool All<T>(this Maybe<T> input, Predicate<T> predicate) => input.IsSome switch
         {
             true => predicate.ThrowIfNull(nameof(predicate))(input.Value),
             _ => true,
