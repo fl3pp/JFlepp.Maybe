@@ -2,155 +2,36 @@
 
 The type `JFlepp.Functional.Maybe` type is intended to be used as a direct substition for the FSharp option type.
 
+## MaybeExtensions
+
+### All / forall
+
+This method does one thing, and it does it reaaly well. Just look at it.
+
+_Parameters_
+
+- `input`: The input maybe
+- `predicate`: The predicate to test
+
+_Returns_: True if the value matches, false otherwise.
+
+_FSharp_
+
+~~~ fs
+foreach input predicate = match input with
+  | Some x -> predicate x
+  | None -> false
+~~~
+
+_Maybe_
+
+~~~ cs
+bool All<TIn>(this Maybe<TIn> input, Predicate<TIn> predicate) input.Match(
+  x => predicate(x),
+  () => false);
+~~~
+
 ## Primitive comparison table
-
-<table>
-  <tr>
-    <td nowrap><code>inline isSome: option:'T option -> bool</code></td>
-    <td nowrap><code>Maybe<T>.IsSome</code></td>
-    <td nowrap>Returns true if the option is not None.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>inline isNone: option:'T option -> bool</code></td>
-    <td nowrap><code>Maybe<T>.IsNone</code></td>
-    <td nowrap>Returns true if the option is None.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>defaultValue: value:'T -> option:'T option -> 'T</code></td>
-    <td nowrap><code>Maybe<T>.GetValueOrDefault()</code></td>
-    <td nowrap>Gets the value of the option if the option is <code>Some</code>, otherwise returns the specified default value.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>defaultWith: defThunk:(unit -> 'T) -> option:'T option -> 'T</code></td>
-    <td nowrap><code>Maybe<T>.GetOr</code></td>
-    <td nowrap>Gets the value of the option if the option is <code>Some</code>, otherwise evaluates <code>defThunk</code> and returns the result.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>orElse: ifNone:'T option -> option:'T option -> 'T option</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Returns <code>option</code> if it is <c>Some</c>, otherwise returns <code>ifNone</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>orElseWith: ifNoneThunk:(unit -> 'T option) -> option:'T option -> 'T option</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Returns <code>option</code> if it is <c>Some</c>, otherwise evaluates <code>ifNoneThunk</code> and returns the result.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>get: option:'T option -> 'T</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Gets the value associated with the option.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>count: option:'T option -> int</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>count inp</code> evaluates to <code>match inp with None -> 0 | Some _ -> 1</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>fold<'T,'State> : folder:('State -> 'T -> 'State) -> state:'State -> option:'T option -> 'State</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>fold f s inp</code> evaluates to <code>match inp with None -> s | Some x -> f s x</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>foldBack<'T,'State> : folder:('T -> 'State -> 'State) -> option:'T option -> state:'State -> 'State</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>fold f inp s</code> evaluates to <code>match inp with None -> s | Some x -> f x s</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>exists: predicate:('T -> bool) -> option:'T option -> bool</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>exists p inp</code> evaluates to <code>match inp with None -> false | Some x -> p x</code>.</td>
-  </tr>
-
-  <tr>
-   <td nowrap><code>forall: predicate:('T -> bool) -> option:'T option -> bool</code></td>
-    <t nowrapd><codeMaybe<T>.></code></td>
-    <t nowrapd><code>forall p inp</code> evaluates to <code>match inp with None -> true | Some x -> p x</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>inline contains: value:'T -> option:'T option -> bool when 'T : equality</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Evaluates to true if <code>option</code> is <code>Some</code> and its value is equal to <code>value</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>iter: action:('T -> unit) -> option:'T option -> unit</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>iter f inp</code> executes <code>match inp with None -> () | Some x -> f x</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>map: mapping:('T -> 'U) -> option:'T option -> 'U option</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>map f inp</code> evaluates to <code>match inp with None -> None | Some x -> Some (f x)</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>bind: binder:('T -> 'U option) -> option:'T option -> 'U option</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>bind f inp</code> evaluates to <code>match inp with None -> None | Some x -> f x</code></td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>flatten: option:'T option option -> 'T option</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>flatten inp</code> evaluates to <code>match inp with None -> None | Some x -> x</code></td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>filter: predicate:('T -> bool) -> option:'T option -> 'T option</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap><code>filter f inp</code> evaluates to <code>match inp with None -> None | Some x -> if f x then Some x else None</code>.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>toArray: option:'T option -> 'T[]</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Convert the option to an array of length 0 or 1.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>toList: option:'T option -> 'T list</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Convert the option to a list of length 0 or 1.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>toNullable: option:'T option -> Nullable<'T></code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Convert the option to a Nullable value.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>ofNullable: value:Nullable<'T> -> 'T option </code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Convert a Nullable value to an option.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>ofObj: value: 'T -> 'T option  when 'T : null</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Convert a potentially null value to an option.</td>
-  </tr>
-
-  <tr>
-    <td nowrap><code>toObj: value: 'T option -> 'T when 'T : null</code></td>
-    <td nowrap><code>Maybe<T>.</code></td>
-    <td nowrap>Convert an option to a potentially null value.</td>
-  </tr>
-
-</table>
-
 
 
 ## Function comparison table
