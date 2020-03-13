@@ -7,7 +7,6 @@ namespace JFlepp.Functional.Tests
     {
         
         [TestMethod]
-        // Reference: None |> Option.forall (fun s -> false) |> Dump 
         public void All_WithNonePredicateNotMatches_ReturnsTrue()
         {
             var input = Maybe.None<string>();
@@ -18,7 +17,6 @@ namespace JFlepp.Functional.Tests
         }
 
         [TestMethod]
-        // Reference: Some "test" |> Option.forall (fun s -> true) |> Dump
         public void All_WithSomePredicateMatches_ReturnsTrue()
         {
             var input = Maybe.Some("test");
@@ -29,7 +27,6 @@ namespace JFlepp.Functional.Tests
         }
 
         [TestMethod]
-        // Reference: Some "test" |> Option.forall (fun s -> false) |> Dump
         public void All_WithSomePredicateNotMatches_ReturnsFalse()
         {
             var input = Maybe.Some("test");

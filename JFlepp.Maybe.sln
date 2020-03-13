@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{906ABF7F-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "refrence", "refrence", "{0405F22E-6992-4DFA-BE07-9EEB7FEB76E6}"
 	ProjectSection(SolutionItems) = preProject
-		reference\option - 98b0b18 on 4 Oct 2017 .fs = reference\option - 98b0b18 on 4 Oct 2017 .fs
+		reference\option - 98b0b18 on 4 Oct 2017.fs = reference\option - 98b0b18 on 4 Oct 2017.fs
 		reference\option - 98b0b18 on 4 Oct 2017.fsi = reference\option - 98b0b18 on 4 Oct 2017.fsi
 		reference\option-primitives - 3bc41f9 on 5 Sep 2018.fs = reference\option-primitives - 3bc41f9 on 5 Sep 2018.fs
 		reference\option-primitives - 3bc41f9 on 5 Sep 2018.fsi = reference\option-primitives - 3bc41f9 on 5 Sep 2018.fsi

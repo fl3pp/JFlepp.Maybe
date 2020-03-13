@@ -21,7 +21,7 @@ namespace JFlepp.Functional
             if (some is null) throw new ArgumentNullException(nameof(some));
             if (none is null) throw new ArgumentNullException(nameof(none));
 
-            return IsSome ? some(value) : none();
+            return IsSome ? some(Value) : none();
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace JFlepp.Functional
             if (some is null) throw new ArgumentNullException(nameof(some));
             if (none is null) throw new ArgumentNullException(nameof(none));
 
-            if (IsSome) some(value); else none();
+            if (IsSome) some(Value); else none();
         }
     }
 }

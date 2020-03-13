@@ -11,7 +11,6 @@ namespace JFlepp.Functional.Tests
     public class AnyTests
     {
         [TestMethod]
-        // Reference: None |> Option.exists (fun s -> true) |> Dump
         public void Any_WithNonePredicateMatches_ReturnsFalse()
         {
             var input = Maybe.None<string>();
@@ -22,7 +21,6 @@ namespace JFlepp.Functional.Tests
         }
 
         [TestMethod]
-        // Reference: Some "test" |> Option.exists (fun s -> true) |> Dump
         public void Any_WithSomePredicateMatches_ReturnsTrue()
         {
             var input = Maybe.Some("test");
@@ -33,7 +31,6 @@ namespace JFlepp.Functional.Tests
         }
 
         [TestMethod]
-        // Reference: Some "test" |> Option.exists (fun s -> false) |> Dump
         public void Any_WithSomePredicateNotMatches_ReturnsFalse()
         {
             var input = Maybe.Some("test");

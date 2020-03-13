@@ -6,7 +6,6 @@ namespace JFlepp.Functional.Tests
     public class BindTests
     {
         [TestMethod]
-        // Reference: Some 1 |> Option.bind (fun s -> Some (s.ToString())) |> Dump
         public void Bind_WithSome_ReturnsOutputOfMapping()
         {
             var input = Maybe.Some(true);
@@ -17,7 +16,6 @@ namespace JFlepp.Functional.Tests
         }
 
         [TestMethod]
-        // Reference: None |> Option.bind (fun s -> Some (s.ToString())) |> Option.isNone |> Dump
         public void Bind_WithNone_ReturnsNoneOfOutput()
         {
             var input = Maybe.None<bool>();

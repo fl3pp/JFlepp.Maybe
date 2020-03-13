@@ -17,7 +17,7 @@ namespace JFlepp.Functional
             if (IsNone) return other.IsNone;
             if (other.IsNone) return false;
 
-            return value.Equals(other.value);
+            return Value.Equals(other.Value);
         }
 
         /// <inheritdoc cref="object.Equals(object)"/>
@@ -25,7 +25,7 @@ namespace JFlepp.Functional
         {
             unchecked
             {
-                return -1584136870 + EqualityComparer<T>.Default.GetHashCode(value);
+                return -1584136870 + EqualityComparer<T>.Default.GetHashCode(Value);
             }
         }
 

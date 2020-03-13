@@ -13,7 +13,21 @@ namespace JFlepp.Functional
         /// </summary>
         /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
         /// <returns>A zero if the <see cref="Maybe{T}" /> is None, a one otherwise.</returns>
-        public static int Count<T>(this Maybe<T> input)
-            => input.Match(v => 1, () => 0);
+        /// <FSharp>
+        /// count option = match option with None -> 0 | Some _ -> 1
+        /// // val count : option:'a option -> int
+        /// </FSharp>
+        /// <Implementation>
+        /// int Count{T}(Maybe{T} input) => input.IsSome switch
+        /// {
+        ///     true => 1,
+        ///     _ => 0,
+        /// };
+        /// </Implementation>
+        public static int Count<T>(this Maybe<T> input) => input.IsSome switch
+        {
+            true => 1,
+            _ => 0,
+        };
     }
 }

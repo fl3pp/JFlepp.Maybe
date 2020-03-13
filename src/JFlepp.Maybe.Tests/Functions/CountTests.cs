@@ -11,7 +11,6 @@ namespace JFlepp.Functional.Tests
     public class CountTests
     {
         [TestMethod]
-        // Reference: None |> Option.count |> Dump
         public void Count_WithNone_Returns0()
         {
             var input = Maybe.None<int>();
@@ -22,7 +21,6 @@ namespace JFlepp.Functional.Tests
         }
 
         [TestMethod]
-        // Reference: Some 10 |> Option.count |> Dump
         public void Count_WithSome_Returns1()
         {
             var input = Maybe.Some(10);
