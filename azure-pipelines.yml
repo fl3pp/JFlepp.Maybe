@@ -11,7 +11,7 @@ pool:
 
 variables:
   solution: 'JFlepp.Maybe.sln'
-  testResultsDirectory: "$(Agent.TempDirectory)\testresults"
+  testResultsDirectory: "$(Agent.TempDirectory)\\testresults"
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
