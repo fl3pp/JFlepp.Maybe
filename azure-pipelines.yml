@@ -33,16 +33,24 @@ steps:
   inputs:
     command: 'build'
     projects: '$(Solution)'
-    arguments: '--configuration $(buildConfiguration)'
-  
+    arguments: |
+        --configuration $(buildConfiguration)
+        --no-build
+
 - task: DotNetCoreCLI@2
   displayName: Test
   inputs:
     command: 'test'
     projects: '$(Solution)'
-    arguments: '--configuration $(buildConfiguration) --no-build --collect:"XPlat Code Coverage" -r .\results --logger trx'
+    arguments: |
+        --configuration $(buildConfiguration)
+        --no-build
+        --collect:"XPlat Code Coverage"
+        -r .\results
+        --logger trx
 
 - task: PublishCodeCoverageResults@1
+  displayName: Publish Code Coverage
   inputs:
     codeCoverageTool: 'JaCoCo'
     summaryFileLocation: '$(Build.SourcesDirectory)\results\**\coverage.cobertura.xml'
