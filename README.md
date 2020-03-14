@@ -40,7 +40,7 @@ __Developing__
 
 You can develop this library using Visual Studio 2019. Simply open the `JFlepp.Maybe.sln` in the root directory and you're good to go.
 
-There is a CI pipeline set up that must pass before you can merge a PR.
+There is a CI pipeline set up that must pass before you can merge a PR. The pipeline checks for a code coverage of at least 99% percent and for 0 build warnings.
 
 ## QA
 
