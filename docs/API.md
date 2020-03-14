@@ -44,7 +44,7 @@ _Parameters_
 
 _Returns:_ `true` if the current object is equal to the other parameter; otherwise, `false`.
 
-_Implementation_
+_Maybe implementation_
 
 ~~~ cs
 bool Equals(object obj) => obj is Maybe<T> otherMaybe ? Equals(otherMaybe) : false;
@@ -56,7 +56,7 @@ Serves as the default hash function.
 
 _Returns:_ A hash code for the current object.
 
-_Implementation_
+_Maybe implementation_
 
 ~~~ cs
 int GetHashCode()
@@ -78,7 +78,7 @@ _Parameters_
 
 _Returns:_ `true` if the current maybe is equal to the other parameter; otherwise, `false`.
 
-_Implementation_
+_Maybe implementation_
 
 ~~~ cs
 bool Equals(Maybe<T> other)
@@ -101,6 +101,12 @@ _Parameters_
 
 _Returns:_ `true` if objects are equal, `false` otherwise.
 
+_Maybe implementation_
+
+~~~ cs
+bool operator ==(Maybe<T> left, Maybe<T> right) => left.Equals(right);
+~~~
+
 ### _Operator:_ Maybe<T> != Maybe<T>
 
 Checks if two `Maybe<T>`s are not equal.
@@ -111,6 +117,12 @@ _Parameters_
 - `left`: The left`Maybe<T>` to compare.
 
 _Returns:_ `true` if objects are not equal, `false` otherwise.
+
+_Maybe implementation_
+
+~~~ cs
+bool operator !=(Maybe<T> left, Maybe<T> right) => !(left == right);
+~~~
 
 ## _Type:_ Maybe
 	
