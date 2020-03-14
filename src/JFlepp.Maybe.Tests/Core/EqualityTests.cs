@@ -31,7 +31,8 @@ namespace JFlepp.Functional.Tests
 
         [TestMethod]
         public void Equals_WithSomeAndOtherNone_ReturnsInequality() =>
-            ExpectSomeMaybe("test").ToNotEqual().WithOtherNoneMaybe();
+            ExpectSomeMaybe("test").ToNotEqual().WithOtherNoneMaybe()
+            .OnEquatableEquals();
 
         [TestMethod]
         public void EqualsGetHashCode_WithNull_ReturnsInequality() =>
