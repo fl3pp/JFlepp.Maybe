@@ -30,6 +30,10 @@ namespace JFlepp.Functional.Tests
             .OnGetHashCode();
 
         [TestMethod]
+        public void Equals_WithSomeAndOtherNone_ReturnsInequality() =>
+            ExpectSomeMaybe("test").ToNotEqual().WithOtherNoneMaybe();
+
+        [TestMethod]
         public void EqualsGetHashCode_WithNull_ReturnsInequality() =>
             ExpectSomeMaybe("test").ToNotEqual().WithOtherSomeMaybe("other")
             .OnObjectEquals()
