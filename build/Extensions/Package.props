@@ -3,9 +3,12 @@
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-
+		
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>$(RootDirectory)license.txt</PackageLicenseFile>
 		<Version>1.0.0</Version>
-		<Authors>JFlepp</Authors>		  
+		<Authors>JFlepp</Authors>
+		<Description>A Maybe type for C#, aimed as an idiomatic port of the option type in F# to C#</Description>
 	</PropertyGroup>
 
 </Project>
