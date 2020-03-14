@@ -46,7 +46,7 @@ steps:
     arguments: >
         --configuration $(buildConfiguration)
         --logger trx
-        "--results-directory $(testResultsDirectory)"
+        --results-directory $(testResultsDirectory)
         --collect:"XPlat Code Coverage"
     publishTestResults: false
     nobuild: true
