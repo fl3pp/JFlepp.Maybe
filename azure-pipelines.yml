@@ -26,21 +26,21 @@ steps:
   inputs:
     command: 'restore'
     projects: '$(Solution)'
-    arguments: '--configuration $(buildConfiguration) --platform $(Platform)'
+    arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
     command: 'build'
     projects: '$(Solution)'
-    arguments: '--configuration $(buildConfiguration) --platform $(Platform)'
+    arguments: '--configuration $(buildConfiguration)'
   
 - task: DotNetCoreCLI@2
   displayName: Test
   inputs:
     command: 'test'
     projects: '$(Solution)'
-    arguments: '--configuration $(buildConfiguration) --platform $(Platform) --no-build --collect:"XPlat Code Coverage" -r .\results --logger trx'
+    arguments: '--configuration $(buildConfiguration) --no-build --collect:"XPlat Code Coverage" -r .\results --logger trx'
 
 - task: PublishCodeCoverageResults@1
   inputs:
