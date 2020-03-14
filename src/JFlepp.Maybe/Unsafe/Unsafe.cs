@@ -15,12 +15,23 @@ namespace JFlepp.Functional.Unsafe
         /// Gets the value of the maybe if is some.
         /// </summary>
         /// <typeparam name="T">The value type of the <see cref="Maybe{T}" />.</typeparam>
-        /// <param name="maybe">The <see cref="Maybe{T}" /> to get the value from.</param>
+        /// <param name="input">The <see cref="Maybe{T}" /> to get the value from.</param>
         /// <returns>The value of the <see cref="Maybe{T}" /> if is some.</returns>
         /// <exception cref="NullReferenceException">If the maybe is none.</exception>
-        public static T GetValue<T>(this Maybe<T> maybe) => maybe.IsSome switch
+        /// <FSharp>
+        /// let get option = match option with None -> invalidArg "option" (SR.GetString(SR.optionValueWasNone)) | Some x -> x
+        /// // val get: option:'T option -> 'T
+        /// </FSharp>
+        /// <Implementation>
+        /// T GetValue{T}(Maybe{T} maybe) => maybe.IsSome switch
+        /// {
+        ///     true => maybe.Value,
+        ///     _ => throw new NullReferenceException(),
+        /// };
+        /// </Implementation>
+        public static T GetValue<T>(this Maybe<T> input) => input.IsSome switch
         {
-            true => maybe.Value,
+            true => input.Value,
             _ => throw new NullReferenceException(),
         };
     }

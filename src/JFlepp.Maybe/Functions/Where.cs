@@ -13,7 +13,7 @@ namespace JFlepp.Functional
         /// </summary>
         /// <param name="input">The input <see cref="Maybe{T}"/>.</param>
         /// <param name="predicate">A function that evaluates whether the value contained in the <see cref="Maybe{T}" /> should remain, or be filtered out.</param>
-        /// <returns></returns>
+        /// <returns>The input if the maybe evaluates to true; otherwise, None.</returns>
         /// <FSharp>
         /// let filter predicate option = match option with None -> None | Some x -> if predicate x then Some x else None
         /// // val filter : predicate:('a -> bool) -> option:'a option -> 'a option

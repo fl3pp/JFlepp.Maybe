@@ -18,7 +18,7 @@ namespace JFlepp.Functional
         /// // val iter : action:('a -> unit) -> option:'a option -> unit
         /// </FSharp>
         /// <Implementation>
-        /// void ForEach{T}(this Maybe{T} input, Action{T} action)
+        /// void ForEach{T}(Maybe{T} input, Action{T} action)
         /// {
         ///     if (input.IsSome) action(input.Value);
         /// }
