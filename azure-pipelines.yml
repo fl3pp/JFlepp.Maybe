@@ -87,6 +87,7 @@ steps:
     checkWarnings: true
     warningFailOption: 'fixed'
     warningThreshold: '0'
+    warningTaskFilters: '/build/i'
     checkCoverage: true
     coverageFailOption: 'fixed'
     coverageType: 'branches'
