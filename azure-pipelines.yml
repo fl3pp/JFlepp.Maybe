@@ -35,7 +35,6 @@ steps:
     projects: '$(Solution)'
     arguments: >
         --configuration $(buildConfiguration)
-        --no-build
 
 - task: DotNetCoreCLI@2
   displayName: Test
