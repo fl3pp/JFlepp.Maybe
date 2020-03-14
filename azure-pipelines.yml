@@ -33,7 +33,7 @@ steps:
   inputs:
     command: 'build'
     projects: '$(Solution)'
-    arguments: |
+    arguments: >
         --configuration $(buildConfiguration)
         --no-build
 
@@ -42,7 +42,7 @@ steps:
   inputs:
     command: 'test'
     projects: '$(Solution)'
-    arguments: |
+    arguments: >
         --configuration $(buildConfiguration)
         --no-build
         --collect:"XPlat Code Coverage"
