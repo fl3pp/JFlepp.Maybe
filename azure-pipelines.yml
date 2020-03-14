@@ -81,3 +81,14 @@ steps:
     ArtifactName: 'NuGetPackages'
     publishLocation: 'Container'
 
+- task: BuildQualityChecks@6
+  displayName: Check build quality
+  inputs:
+    checkWarnings: true
+    warningFailOption: 'fixed'
+    warningThreshold: '0'
+    checkCoverage: true
+    coverageFailOption: 'fixed'
+    coverageType: 'branches'
+    coverageThreshold: '99'
+    includePartiallySucceeded: false
