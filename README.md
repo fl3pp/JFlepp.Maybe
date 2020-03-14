@@ -1,6 +1,13 @@
 <h1>JFlepp.Maybe</h1>
 
-[![Build Status](https://dev.azure.com/jflepp/JFlepp.Maybe/_apis/build/status/jflepp.JFlepp.Maybe?branchName=master)](https://dev.azure.com/jflepp/JFlepp.Maybe/_build/latest?definitionId=11&branchName=master)
+<p align="left">
+<a href="https://dev.azure.com/jflepp/JFlepp.Maybe/_build/latest?definitionId=11&branchName=master">
+  <img src="https://dev.azure.com/jflepp/JFlepp.Maybe/_apis/build/status/jflepp.JFlepp.Maybe?branchName=master" />
+</a>
+<a href="https://www.nuget.org/packages/JFlepp.Maybe/">
+  <img src="https://img.shields.io/nuget/dt/JFlepp.Maybe.svg" />
+</a>
+</p>
 
 <img align="right" src="Logo.PNG" alt="logo" height="125x" />
 
