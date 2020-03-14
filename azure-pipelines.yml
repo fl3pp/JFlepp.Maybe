@@ -55,7 +55,7 @@ steps:
 - script: |
     dotnet tool install -g dotnet-reportgenerator-globaltool
     reportgenerator -reports:$(testResultsDirectory)\**\coverage.cobertura.xml -targetdir:$(testCoverageDirectory) -reporttypes:HtmlInline_AzurePipelines;Cobertura
-  displayName: Create Code coverage report
+  displayName: Generate Coverage Report
 
 - task: PublishTestResults@2
   displayName: Publish test results
@@ -66,9 +66,18 @@ steps:
     mergeTestResults: true
 
 - task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage'
+  displayName: Publish Coverage Results
   inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(testCoverageDirectory)\index.hml'
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(testResultsDirectory)\**\coverage.cobertura.xml'
+    pathToSources: '$(Build.SourcesDirectory)\src'
     reportDirectory: '$(testCoverageDirectory)'
+    failIfCoverageEmpty: true
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish NuGet packages
+  inputs:
+    PathtoPublish: '$(Build.SourcesDirectory)\out\packages'
+    ArtifactName: 'NuGetPackages'
+    publishLocation: 'Container'
 
