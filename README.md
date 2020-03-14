@@ -1,5 +1,14 @@
 <h1>JFlepp.Maybe</h1>
 
+<p align="left">
+<a href="https://dev.azure.com/jflepp/JFlepp.Maybe/_build/latest?definitionId=11&branchName=master">
+  <img src="https://dev.azure.com/jflepp/JFlepp.Maybe/_apis/build/status/jflepp.JFlepp.Maybe?branchName=master" />
+</a>
+<a href="https://www.nuget.org/packages/JFlepp.Maybe/">
+  <img src="https://img.shields.io/nuget/dt/JFlepp.Maybe.svg" />
+</a>
+</p>
+
 <img align="right" src="Logo.PNG" alt="logo" height="125x" />
 
 A `Maybe` type for C#, aimed as an idiomatic port of the `option` type in F# to C#.
@@ -38,7 +47,7 @@ __Developing__
 
 You can develop this library using Visual Studio 2019. Simply open the `JFlepp.Maybe.sln` in the root directory and you're good to go.
 
-At the moment, there is no CI pipeline set up for this project. If the development of this library advances I'm certainly going to set up one.
+There is a CI pipeline set up that must pass before you can merge a PR. The pipeline checks for a code coverage of at least 99% percent and for 0 build warnings.
 
 ## QA
 

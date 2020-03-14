@@ -3,9 +3,17 @@
 	<PropertyGroup>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-
+		
+		<RepositoryUrl>https://github.com/jflepp/JFlepp.Maybe</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageLicenseFile>license.txt</PackageLicenseFile>
 		<Version>1.0.0</Version>
-		<Authors>JFlepp</Authors>		  
+		<Authors>JFlepp</Authors>
+		<Description>A Maybe type for C#, aimed as an idiomatic port of the option type in F# to C#</Description>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="$(RootDirectory)$(PackageLicenseFile)" Pack="true" PackagePath="$(PackageLicenseFile)" />
+	</ItemGroup>
 
 </Project>
