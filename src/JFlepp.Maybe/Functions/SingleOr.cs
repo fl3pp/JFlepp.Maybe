@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace JFlepp.Functional
 {
@@ -19,13 +15,13 @@ namespace JFlepp.Functional
         /// // val defaultValue : value:'a -> option:'a option -> 'a
         /// </FSharp>
         /// <Implementation>
-        /// T GetOr{T}(this Maybe{T} input, T or) => input.IsSome switch
+        /// T SingleOr{T}(this Maybe{T} input, T or) => input.IsSome switch
         /// {
         ///     true => input.Value,
         ///     _ => or,
         /// };
         /// </Implementation>
-        public static T GetOr<T>(this Maybe<T> input, T or) => input.IsSome switch
+        public static T SingleOr<T>(this Maybe<T> input, T or) => input.IsSome switch
         {
             true => input.Value,
             _ => or,
@@ -42,13 +38,13 @@ namespace JFlepp.Functional
         /// // val defaultWith : defThunk:(unit -> 'a) -> option:'a option -> 'a
         /// </FSharp>
         /// <Implementation>
-        /// T GetOr{T}(Maybe{T} input, Func{T} or) => input.IsSome switch
+        /// T SingleOr{T}(Maybe{T} input, Func{T} or) => input.IsSome switch
         /// {
         ///     true => input.Value,
         ///     _ => or.ThrowIfNull(nameof(or))(),
         /// };
         /// </Implementation>
-        public static T GetOr<T>(this Maybe<T> input, Func<T> or) => input.IsSome switch
+        public static T SingleOr<T>(this Maybe<T> input, Func<T> or) => input.IsSome switch
         {
             true => input.Value,
             _ => or.ThrowIfNull(nameof(or))(),
