@@ -17,6 +17,7 @@
 	</PropertyGroup>
 
 	<Import Project="$(BuildExtensionsDirectory)Compilation.props" />
+	<Import Project="$(BuildExtensionsDirectory)Package.props" />
 	<Import Project="$(BuildExtensionsDirectory)Analyzers.props" />
 	<Import Project="$(BuildExtensionsDirectory)Out.props" />
 
