@@ -27,7 +27,7 @@ namespace JFlepp.Functional
         public static T[] ToArray<T>(this Maybe<T> input) => input.IsSome switch
         {
             true => new[] { input.Value },
-            _ => Array.Empty<T>(),
+            _ => new T[0],
         };
     }
 }

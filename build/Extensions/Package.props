@@ -13,7 +13,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="$(RootDirectory)$(PackageLicenseFile)" Pack="true" PackagePath="$(PackageLicenseFile)" />
+		<None Include="$(RootDirectory)$(PackageLicenseFile)" Pack="true" PackagePath="$(PackageLicenseFile)" Visible="false" />
 	</ItemGroup>
 
 </Project>

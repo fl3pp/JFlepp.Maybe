@@ -1,10 +1,6 @@
 <Project>
 
 	<PropertyGroup>
-		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-	</PropertyGroup>
-
-	<PropertyGroup>
 		<OutDir>$(OutDirectory)bin\</OutDir>
 		<OutDir Condition="'$(IsTest)'=='True'">$(OutDirectory)test\</OutDir>
 		<BaseIntermediateOutputPath>$(OutDirectory)obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>

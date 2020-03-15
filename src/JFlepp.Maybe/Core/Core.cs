@@ -19,7 +19,8 @@ namespace JFlepp.Functional
         public Maybe(T value)
         {
             if (value == null) throw new ArgumentNullException(nameof(value));
-            (Value, IsSome) = (value, true);
+            Value = value;
+            IsSome = true;
         }
 
         /// <summary>
