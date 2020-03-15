@@ -1,5 +1,7 @@
 # Maybe API docs
 
+This is the API documentation for the JFlepp.Maybe library. Please note that the implementations do not show the actual implementation, but rather a reference to look up the behavior.
+
 ## _Type:_ Maybe<T>
 
 Representation of a maybe value.
