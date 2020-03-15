@@ -64,6 +64,10 @@ There are several quality checks set up to assure the stability. All checks are 
 - No build warnings are allowed.
 - The public API is fully documented, and there is a [API documentation](docs/API.md) set up.
 
+### I'm stuck on the .NET framework. Am I still able to use this library?
+
+This library provides in addition the the `netstandard2.0` and `net45` target. So yes, you are able to use this library in your .NET Framework app without any hassle.
+
 ### How does versioning work?
 
 This library uses [SemVer](http://semver.org/) for versioning.
