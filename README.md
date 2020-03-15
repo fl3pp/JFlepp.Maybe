@@ -15,10 +15,10 @@ A `Maybe` type for C#, aimed as an idiomatic port of the `option` type in F# to 
 
 An option type is a type that has two states, `Some` and `None`. You can use it instead of `null` values as it forces
 you to check if a value exists before using it. It also allows you to to enter an elevated world of having a value
-or not (reader monads).
+or not.
 
 An easy way to think about option types is as lists with one item or none. This library provides you with such a type and with
-C# idiomatic extensions as you would find them in `System.Linq`.
+C# idiomatic extensions as you find them in `System.Linq`.
 
 Take a look the the [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options) for more informations about the option type this library aims to provide.
 
@@ -43,7 +43,7 @@ Feel free to open issues and PRs!
 
 __Developing__
 
-You can develop this library using Visual Studio 2019. Simply open the `JFlepp.Maybe.sln` in the root directory and you're good to go.
+You can develop this library using Visual Studio 2019. Simply open the `JFlepp.Maybe.sln` solution from the root directory and you're good to go.
 
 There is a CI pipeline set up that must pass before you can merge a PR.
 
@@ -57,7 +57,7 @@ and doing so in a straight forward manner.
 
 ### I don't want to introduce a funky library into my domain model. Which quality gates are set up?
 
-There are several quality checks set up to assure the stability. All checks are being enforced in the [CI pipeline](https://dev.azure.com/jflepp/JFlepp.Maybe/_build/latest?definitionId=11&branchName=master).
+There are several quality checks set up to assure the stability of this library. All checks are being enforced in the [CI pipeline](https://dev.azure.com/jflepp/JFlepp.Maybe/_build/latest?definitionId=11&branchName=master).
 
 - Test Code Coverage of a least `99%`.
 - `Microsoft.CodeAnalysis.FxCopAnalyzers` analyzers are set up.
@@ -66,7 +66,7 @@ There are several quality checks set up to assure the stability. All checks are 
 
 ### I'm stuck on the .NET framework. Am I still able to use this library?
 
-This library provides in addition the the `netstandard2.0` and `net45` target. So yes, you are able to use this library in your .NET Framework app without any hassle.
+This library provides in addition the the `netstandard2.0` target a `net45` target. So yes, you are able to use this library in your .NET Framework app without any hassle.
 
 ### How does versioning work?
 
@@ -74,7 +74,7 @@ This library uses [SemVer](http://semver.org/) for versioning.
 
 ### How do I access the value of a `Maybe`?
 
-If possible, try to stay in the elevated world of maybes. Do not try to get the actual value out
+If possible, try to stay in the elevated world of maybes. Do not try to get the value out
 of a maybe until you actually need it, but let it be a part of your domain model instead. Try to use the
 numerous extension methods provided on the maybe if possible while doing so.
 
