@@ -22,13 +22,13 @@ C# idiomatic extensions as you would find them in `System.Linq`.
 
 Take a look the the [Microsoft Docs](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options) for more informations about the option type this library aims to provide.
 
-## Usage
+Take a look at the [API](docs/API.md) or [special cases](docs/SpecialCases.md) docs for more information.
 
-Here is a Hello World example for the maybe library. 
+## Hello World example
 
 ~~~ cs
 var aValue = Maybe.Some("Hello ")
-	.Select(v => v + "World!");
+    .Select(v => v + "World!");
 
 void WriteIfIsSome(Maybe<string> option) => option.ForEach(Console.WriteLine);
 
@@ -36,8 +36,6 @@ WriteIfIsSome(aValue);
 
 // Hello World!
 ~~~
-
-Take a look at the [examples](docs/examples.md), [API](docs/API.md) or [special cases](docs/SpecialCases.md) docs for more information.
 
 ## Contributing
 
@@ -47,7 +45,7 @@ __Developing__
 
 You can develop this library using Visual Studio 2019. Simply open the `JFlepp.Maybe.sln` in the root directory and you're good to go.
 
-There is a CI pipeline set up that must pass before you can merge a PR. The pipeline checks for a code coverage of at least 99% percent and for 0 build warnings.
+There is a CI pipeline set up that must pass before you can merge a PR.
 
 ## QA
 
@@ -56,6 +54,15 @@ There is a CI pipeline set up that must pass before you can merge a PR. The pipe
 There are many other implementations around and all differentiate a little bit.
 This implementation aims to implemented option methods in an C# idiomatic (mainly `System.Linq` like) way
 and doing so in a straight forward manner.
+
+### I don't want to introduce a funky library into my domain model. Which quality gates are set up?
+
+There are several quality checks set up to assure the stability. All checks are being enforced in the [CI pipeline](https://dev.azure.com/jflepp/JFlepp.Maybe/_build/latest?definitionId=11&branchName=master).
+
+- Test Code Coverage of a least `99%`.
+- `Microsoft.CodeAnalysis.FxCopAnalyzers` analyzers are set up.
+- No build warnings are allowed.
+- The public API is fully documented, and there is a [API documentation](docs/API.md) set up.
 
 ### How does versioning work?
 

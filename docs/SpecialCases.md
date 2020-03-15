@@ -1,4 +1,8 @@
-# Maybe examples
+# Special cases
+
+There are some substatial differences between the option type in FSharp and the Maybe library.
+
+The biggest usage differences are being documented here.
 
 ## Direct value access
 
